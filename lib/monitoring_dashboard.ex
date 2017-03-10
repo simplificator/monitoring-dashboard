@@ -1,0 +1,2 @@
+defmodule MonitoringDashboard do
+end
