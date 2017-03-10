@@ -5,6 +5,8 @@
 # is restricted to this project.
 use Mix.Config
 
+config :root, Path.dirname(__DIR__)
+
 config :kitto,
   ip: {0, 0, 0, 0},
   port: {:system, "PORT"}
