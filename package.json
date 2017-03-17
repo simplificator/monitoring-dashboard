@@ -49,5 +49,10 @@
     "rickshaw": "1.6.0",
     "jquery": "2.2.3",
     "jquery-knob": "1.2.11"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marionschleifer/monitoring-dashboard"
   }
 }
