@@ -4,8 +4,8 @@ defmodule NewRelicTest do
   import Kitto.Jobs.NewRelic
 
   test ": new relic is correctly pulled" do
-    result = fetch()
-    assert result == "test"
+    {status, body}  = fetch()
+    assert status == :ok
   end
   
 end
