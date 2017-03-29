@@ -10,6 +10,7 @@ defmodule Kitto.Jobs.Nodeping do
     nodeping_url()
     |> HTTPoison.get
     |> parse_response
+    |> filter
   end
 
   def nodeping_url() do
@@ -22,6 +23,11 @@ defmodule Kitto.Jobs.Nodeping do
 
   def parse_response({ _, %{status_code: _, body: body}}) do
     { :error, Poison.Parser.parse!(body) }
+  end
+
+  def filter({ :ok, body }) do
+    Map.values(body)
+    |> Enum.map(fn x -> {x["label"], x["type"]} end)
   end
 
 end
