@@ -13,6 +13,12 @@ defmodule Kitto.Jobs.Nodeping do
     |> filter
   end
 
+  def test_response() do
+    nodeping_url()
+    |> HTTPoison.get
+    |> parse_response
+  end
+
   def nodeping_url() do
     "https://api.nodeping.com/api/1/results/current?token=#{@api_key}"
   end
