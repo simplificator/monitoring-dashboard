@@ -22,6 +22,6 @@ defmodule MonitoringDashboard.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [kitto: "~> 0.5.1",
-      httpoison: "~> 0.10.0"]
+     httpoison: "~> 0.10.0"]
   end
 end
