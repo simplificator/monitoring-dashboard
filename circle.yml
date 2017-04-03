@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/cci-demo-elixir
+    docker:
+      - image: trenpixster/elixir:1.3.2
+    steps:
+      - checkout
+      - run: mix deps.get
+      - run: mix test
