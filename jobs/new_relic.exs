@@ -24,16 +24,11 @@ defmodule Kitto.Jobs.NewRelic do
   end
 
   def filter({ :ok, body }) do
-    servers = body["servers"]
-    keylist = Enum.map(servers, &{ &1["health_status"], &1["name"]})
-    a=[]
-
-    ok = for {"green", n} <- keylist, do: a = a++n
-    error = for {"red", n} <- keylist, do: a = a++n
-
+    body["servers"]
+    |>Enum.map(fn server -> {Map.get(server, "name"),Map.get(server, "health_status")} end)
   end
 
-  def filter({ :ok, body }) do
+  def filter({ :error, body }) do
     "Error during connection to new Relic"
   end
 end
