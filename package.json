@@ -53,6 +53,6 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/marionschleifer/monitoring-dashboard"
+    "url": "https://github.com/simplificator/monitoring-dashboard"
   }
 }
