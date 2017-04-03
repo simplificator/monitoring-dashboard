@@ -3,12 +3,11 @@ use Kitto.Job.DSL
 defmodule Kitto.Jobs.NewRelic do
   @api_key [{"X-Api-Key", "e535b99e8df16af131b1b70f99387a492ddf879016d0eef"}]
 
-  def new, do: Agent.start(fn -> 0 end)
-
   def fetch() do
     new_relic_url()
     |> HTTPoison.get(@api_key)
     |> parse_response
+    |> filter
   end
 
   def new_relic_url() do
@@ -25,7 +24,7 @@ defmodule Kitto.Jobs.NewRelic do
 
   def filter({ :ok, body }) do
     body["servers"]
-    |>Enum.map(fn server -> {Map.get(server, "name"),Map.get(server, "health_status")} end)
+    |>Enum.map(fn server -> %{label: Map.get(server, "name"),value: Map.get(server, "health_status")} end)
   end
 
   def filter({ :error, body }) do
@@ -33,10 +32,9 @@ defmodule Kitto.Jobs.NewRelic do
   end
 end
 
-{:ok, new_relic} = Kitto.Jobs.NewRelic.new
-list = &(&1 |> Kitto.Jobs.Convergence.fetch)
 
 job :new_relic, every: :minute do
-   broadcast! %{items: list}
+  list = Kitto.Jobs.NewRelic.fetch
+  broadcast! %{items: list}
 end
 
