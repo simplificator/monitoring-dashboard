@@ -1,0 +1,14 @@
+<div class="gridster">
+  <ul>
+    <li data-row="1"
+        data-col="1"
+        data-sizex="2"
+        data-sizey="2">
+      <div class="widget-list widget-job new-relic"
+        data-unordered="true"
+        data-widget="List"
+        data-source="new_relic"
+        data-title="New Relic"></div>
+    </li>
+  </ul>
+</div>
