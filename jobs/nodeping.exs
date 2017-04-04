@@ -2,8 +2,6 @@ use Kitto.Job.DSL
 
 defmodule Kitto.Jobs.Nodeping do
 
-  @api_key ["***REMOVED***"]
-
   def new, do: Agent.start(fn -> 0 end)
 
   def fetch() do
@@ -20,7 +18,7 @@ defmodule Kitto.Jobs.Nodeping do
   end
 
   def nodeping_url() do
-    "https://api.nodeping.com/api/1/results/current?token=#{@api_key}"
+    "https://api.nodeping.com/api/1/results/current?token="<>System.get_env("NODEPINGAPI")
   end
 
   def parse_response({ :ok, %{status_code: 200, body: body}}) do
