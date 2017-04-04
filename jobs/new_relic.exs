@@ -1,11 +1,10 @@
 use Kitto.Job.DSL
 
 defmodule Kitto.Jobs.NewRelic do
-  @api_key [{"X-Api-Key", "e535b99e8df16af131b1b70f99387a492ddf879016d0eef"}]
 
   def fetch() do
     new_relic_url()
-    |> HTTPoison.get(@api_key)
+    |> HTTPoison.get([{"X-Api-Key", System.get_env("NEWRELICAPI")}])
     |> parse_response
     |> filter
   end
