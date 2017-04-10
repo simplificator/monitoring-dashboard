@@ -26,7 +26,7 @@ defmodule Kitto.Jobs.NewRelic do
     |>Enum.map(fn server -> %{label: Map.get(server, "name"),value: Map.get(server, "health_status")} end)
   end
 
-  def filter({ :error, body }) do
+  def filter({ :error, _body }) do
     "Error during connection to new Relic"
   end
 end
@@ -36,4 +36,3 @@ job :new_relic, every: :minute do
   list = Kitto.Jobs.NewRelic.fetch
   broadcast! %{items: list}
 end
-
