@@ -1,4 +1,4 @@
-# MonitoringDashboardUmbrella
+# Monitoring Dashboard
 
 ## Description
 
@@ -28,4 +28,4 @@ The application consists of an umbrella application that contains two sub-applic
 ## Start the Application
 
 * In the umbrella application directory, start your server: ``mix server``
-* In the monitoring_dashboard directory, start npm: ``npm start`
+* In the monitoring_dashboard directory, start npm: ``npm start``
