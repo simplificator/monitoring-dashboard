@@ -4,6 +4,10 @@ defmodule Kitto.Jobs.Nodeping do
 
   def new, do: Agent.start(fn -> 0 end)
 
+  def receive_push(request) do
+    IO.puts request
+  end
+
   def fetch() do
     nodeping_url()
     |> HTTPoison.get
