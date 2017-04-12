@@ -3,8 +3,10 @@ defmodule NodepingTest do
 
   import Kitto.Jobs.Nodeping
 
-  test ": nodeping is correctly pulled" do
-    {status, body} = test_response()
-    assert status == :ok
-  end
+  # TODO: write test with mock request
+
+  # test ": nodeping is correctly pulled" do
+  #   {status, body} = test_response()
+  #   assert status == :ok
+  # end
 end
