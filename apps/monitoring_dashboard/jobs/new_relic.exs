@@ -23,11 +23,19 @@ defmodule Kitto.Jobs.NewRelic do
 
   def filter({ :ok, body }) do
     body["servers"]
-    |>Enum.map(fn server -> %{label: Map.get(server, "name"),value: Map.get(server, "health_status")} end)
+    |>Enum.filter_map(fn server -> Map.get(server, "health_status")!== "green" end,fn server -> mapping(server) end)
   end
 
   def filter({ :error, _body }) do
     "Error during connection to new Relic"
+  end
+
+  def mapping(server) do
+    case Map.get(server, "health_status") do
+      "red" ->
+        %{label: Map.get(server, "name"), value: "Down"}
+      _ -> %{label: Map.get(server, "name"), value: "Warning"}
+    end
   end
 end
 
