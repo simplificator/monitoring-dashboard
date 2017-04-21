@@ -32,7 +32,7 @@ defmodule Kitto.Jobs.NewRelic do
 end
 
 
-# job :new_relic, every: :minute do
-#   list = Kitto.Jobs.NewRelic.fetch
-#   broadcast! %{items: list}
-# end
+job :new_relic, every: :minute do
+  list = Kitto.Jobs.NewRelic.fetch
+  broadcast! %{items: list}
+end
