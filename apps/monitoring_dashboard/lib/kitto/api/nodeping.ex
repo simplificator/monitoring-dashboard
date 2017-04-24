@@ -1,6 +1,4 @@
-use Kitto.Job.DSL
-
-defmodule Kitto.Jobs.Nodeping do
+defmodule Kitto.Api.Nodeping do
 
   def new, do: Agent.start(fn -> 0 end)
 
