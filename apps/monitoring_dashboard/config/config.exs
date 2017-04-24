@@ -9,6 +9,8 @@ config :kitto, root: Path.dirname(__DIR__)
 
 config :kitto, otp_app: :monitoring_dashboard
 
+config :kitto, default_dashboard: "basic"
+
 config :kitto,
   ip: {0, 0, 0, 0},
   port: {:system, "PORT"}
