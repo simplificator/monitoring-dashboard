@@ -2,13 +2,25 @@
   <ul>
     <li data-row="1"
         data-col="1"
-        data-sizex="1"
+        data-sizex="2"
         data-sizey="1">
       <div class="widget-trafficlight widget-job new-relic"
         data-unordered="true"
         data-widget="Trafficlight"
         data-source="new_relic"
-        data-title="New Relic"></div>
+        data-title="New Relic">
+      </div>
+    </li>
+    <li data-row="1"
+        data-col="3"
+        data-sizex="2"
+        data-sizey="1">
+      <div class="widget-trafficlight widget-job"
+        data-unordered="true"
+        data-widget="Trafficlight"
+        data-source="semaphore"
+        data-title="Semaphore">
+      </div>
     </li>
   </ul>
 </div>
