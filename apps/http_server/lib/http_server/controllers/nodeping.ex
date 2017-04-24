@@ -3,7 +3,7 @@ defmodule HttpServer.Controllers.Nodeping do
 
   def get(conn, []) do
     nodeping_list = filter_list(conn.params)
-    Kitto.Jobs.Nodeping.receive_push_and_display_list(nodeping_list)
+    Kitto.Api.Nodeping.receive_push_and_display_list(nodeping_list)
     raw conn |> resp(200, "Nodeping")
   end
 
@@ -13,6 +13,13 @@ defmodule HttpServer.Controllers.Nodeping do
       [ %{label: head["label"], value: head["event"]} | filter_list(tail) ]
     else
       filter_list(tail)
+    end
+  end
+  def filter_list(head) do
+    if head["event"] in ["down"] do
+      %{label: head["label"], value: head["event"]}
+    else
+      []
     end
   end
 end
