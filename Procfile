@@ -1,1 +1,1 @@
-web: mix server
+web: mix kitto.server
