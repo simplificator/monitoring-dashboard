@@ -2,7 +2,7 @@
   "name": "monitoring_dashboard",
   "version": "0.0.1",
   "description": "Dashboard Application",
-  "main": "app/monitoring-dashboard/index.js",
+  "main": "app/monitoring_dashboard/index.js",
   "engines": {
     "node": "7.9.0",
     "npm": "4.5.0"

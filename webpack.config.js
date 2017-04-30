@@ -5,12 +5,12 @@ const webpack = require('webpack');
 
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
-  app: path.join(__dirname, 'assets/javascripts/application.js'),
-  widgets: glob.sync('./widgets/**/*.js'),
-  build: path.join(__dirname, 'public/assets'),
-  gridster: path.join(__dirname, 'node_modules/gridster/dist'),
-  d3: path.join(__dirname, 'node_modules/d3/d3.min.js'),
-  rickshaw: path.join(__dirname, 'node_modules/rickshaw/rickshaw.js')
+  app: path.join(__dirname, 'apps/monitoring_dashboard/assets/javascripts/application.js'),
+  widgets: glob.sync('./apps/monitoring_dashboard/widgets/**/*.js'),
+  build: path.join(__dirname, 'apps/monitoring_dashboard/public/assets'),
+  gridster: path.join(__dirname, 'apps/monitoring_dashboard/node_modules/gridster/dist'),
+  d3: path.join(__dirname, 'apps/monitoring_dashboard/node_modules/d3/d3.min.js'),
+  rickshaw: path.join(__dirname, 'apps/monitoring_dashboard/node_modules/rickshaw/rickshaw.js')
 };
 
 process.env.BABEL_ENV = TARGET;
