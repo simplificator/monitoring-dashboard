@@ -1,8 +1,10 @@
-"scripts": {
-  "build": "./node_modules/.bin/webpack --config webpack.config.js",
-  "start": "./node_modules/.bin/webpack-dev-server --progress --colors",
-  "heroku-postbuild": "npm run build"
-},
-"keywords": [
-  "webpack"
-],
+{
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --config webpack.config.js",
+    "start": "./node_modules/.bin/webpack-dev-server --progress --colors",
+    "heroku-postbuild": "npm run build"
+  },
+  "keywords": [
+    "webpack"
+  ]  
+}
