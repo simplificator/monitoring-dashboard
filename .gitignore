@@ -25,3 +25,36 @@ erl_crash.dump
 
 # NPM packages
 node_modules/
+
+erl_crash.dump
+*.ez
+.idea/
+*.iml
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor files/dirs
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+# Compiled Assets
+public/*
+!public/assets
+public/assets/*
+!public/assets/favicon.*
+!public/assets/images
