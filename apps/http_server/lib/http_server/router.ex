@@ -13,4 +13,5 @@ defmodule HttpServer.Router do
 
   # Define your routes here
   get "/", HttpServer.Controllers.Main, :index
+  get "/nodeping", HttpServer.Controllers.Nodeping, :get
 end
