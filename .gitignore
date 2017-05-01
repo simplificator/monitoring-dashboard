@@ -53,8 +53,8 @@ nbproject
 Thumbs.db
 
 # Compiled Assets
-public/*
-!public/assets
-public/assets/*
-!public/assets/favicon.*
-!public/assets/images
+apps/monitoring_dashboard/public/*
+!apps/monitoring_dashboard/public/assets
+apps/monitoring_dashboard/public/assets/*
+!apps/monitoring_dashboard/public/assets/favicon.*
+!apps/monitoring_dashboard/public/assets/images
