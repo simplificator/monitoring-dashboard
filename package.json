@@ -10,7 +10,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server --progress --colors",
-    "heroku-postbuild": "node node_modules/node-sass/scripts/install.js && npm rebuild node-sass && yarn run build"
+    "heroku-postbuild": "node node_modules/node-sass/scripts/install.js && yarn run build"
   },
   "keywords": [
     "webpack"
