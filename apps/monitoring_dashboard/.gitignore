@@ -1,6 +1,3 @@
-/_build
-/cover
-/deps
 erl_crash.dump
 *.ez
 .idea/
@@ -26,9 +23,6 @@ erl_crash.dump
 .tmproj
 nbproject
 Thumbs.db
-
-# NPM packages
-node_modules/
 
 # Compiled Assets
 public/*
