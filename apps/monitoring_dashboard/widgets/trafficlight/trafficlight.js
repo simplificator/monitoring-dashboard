@@ -29,7 +29,6 @@ export class Trafficlight extends Widget {
     });
   }
   renderList(items) {
-    console.log(items)
     return this.props.unordered ? <ul>{items}</ul> : <ol>{items}</ol>;
   }
   render() {
