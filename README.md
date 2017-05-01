@@ -19,6 +19,7 @@ The application consists of an umbrella application that contains two sub-applic
 ## Installation
 
 * ``mix deps.get && npm install``
+* ``brew install yarn``
 
 ## Configuration
 
@@ -28,4 +29,4 @@ The application consists of an umbrella application that contains two sub-applic
 ## Start the Application
 
 * In the umbrella application directory, start your server: ``mix server``
-* In the monitoring_dashboard directory, start npm: ``npm start``
+* In the same directory, start yarn: `yarn run start``
