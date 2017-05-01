@@ -22,5 +22,16 @@
         data-title="Semaphore">
       </div>
     </li>
+    <li data-row="1"
+        data-col="5"
+        data-sizex="2"
+        data-sizey="1">
+      <div class="widget-trafficlight widget-job"
+        data-unordered="true"
+        data-widget="Trafficlight"
+        data-source="nodeping"
+        data-title="Nodeping">
+      </div>
+    </li>
   </ul>
 </div>

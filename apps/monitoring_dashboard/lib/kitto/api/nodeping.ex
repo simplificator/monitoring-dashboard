@@ -1,33 +1,12 @@
 defmodule Kitto.Api.Nodeping do
 
-  def fetch() do
-    nodeping_url()
-    |> HTTPoison.get
-    |> parse_response
-    |> filter
-  end
+  def new, do: Agent.start(fn -> 0 end)
 
-  def test_response() do
-    nodeping_url()
-    |> HTTPoison.get
-    |> parse_response
-  end
-
-  def nodeping_url() do
-    "https://api.nodeping.com/api/1/results/current?token="<>System.get_env("NODEPINGAPI")
-  end
-
-  def parse_response({ :ok, %{status_code: 200, body: body}}) do
-    { :ok, Poison.Parser.parse!(body) }
-  end
-
-  def parse_response({ _, %{status_code: _, body: body}}) do
-    { :error, Poison.Parser.parse!(body) }
-  end
-
-  def filter({ :ok, body }) do
-    Map.values(body)
-    |> Enum.map(fn x -> {x["label"], x["type"]} end)
+  def receive_push_and_display_list(nodeping_list) do
+    post_body = nodeping_list |> Poison.encode!
+    post_body = "{\"items\": "<>post_body<>"}"
+    {:ok, response} = HTTPoison.post("http://localhost:4000/widgets/nodeping", post_body, %{"Content-Type" => "application/json"})
+    IO.puts "response: " <> Kernel.inspect(response)
   end
 
 end
