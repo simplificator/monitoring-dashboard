@@ -32,7 +32,7 @@ export class Trafficlight extends Widget {
     return this.props.unordered ? <ul>{items}</ul> : <ol>{items}</ol>;
   }
   render() {
-  if(this.state.items == [] || this.state.items == ''){
+  if(this.state.items == [] || this.state.items == '' || this.state.items == undefined){
       return(
       <div className={this.props.className} id="up">
               <h1 className="title">{this.props.title}</h1>
