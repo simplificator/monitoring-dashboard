@@ -1,8 +1,8 @@
-defmodule MonitoringDashboard.Mixfile do
+defmodule MonitoringDashboard.Web.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :monitoring_dashboard,
+    [app: :monitoring_dashboard_web,
      version: "0.0.1",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
@@ -10,6 +10,7 @@ defmodule MonitoringDashboard.Mixfile do
      lockfile: "../../mix.lock",
      elixir: "~> 1.4",
      elixirc_paths: elixirc_paths(Mix.env),
+     compilers: [:phoenix, :gettext] ++ Mix.compilers,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
      deps: deps()]
@@ -19,7 +20,7 @@ defmodule MonitoringDashboard.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {MonitoringDashboard.Application, []},
+    [mod: {MonitoringDashboard.Web.Application, []},
      extra_applications: [:logger, :runtime_tools]]
   end
 
@@ -31,7 +32,13 @@ defmodule MonitoringDashboard.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [httpoison: "~> 0.10.0"]
+    [{:phoenix, "~> 1.3.0-rc"},
+     {:phoenix_pubsub, "~> 1.0"},
+     {:phoenix_html, "~> 2.6"},
+     {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:gettext, "~> 0.11"}, 
+     {:monitoring_dashboard, in_umbrella: true}, 
+     {:cowboy, "~> 1.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

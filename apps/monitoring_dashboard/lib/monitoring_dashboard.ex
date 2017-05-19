@@ -1,2 +1,0 @@
-defmodule MonitoringDashboard do
-end
