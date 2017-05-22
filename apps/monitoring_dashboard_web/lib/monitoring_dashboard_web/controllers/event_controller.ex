@@ -3,6 +3,7 @@ defmodule MonitoringDashboard.Web.EventController do
 
   def index(conn, _params) do
     MonitoringDashboard.Web.Endpoint.subscribe("semaphore", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("new_relic", [])
 
     conn = conn
     |> put_resp_content_type("text/event-stream")

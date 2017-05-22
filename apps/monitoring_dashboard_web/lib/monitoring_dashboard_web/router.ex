@@ -19,13 +19,17 @@ defmodule MonitoringDashboard.Web.Router do
 
   scope "/", MonitoringDashboard.Web do
     pipe_through :browser # Use the default browser stack
+    get "/", DashboardController, :show
     get "/dashboards/basic", DashboardController, :show
+    get "/nodeping", NodepingController, :get
   end
 
   scope "/events", MonitoringDashboard.Web do
     # pipe_through(:event_stream)
     get "/", EventController, :index
   end
+
+
 
   # Other scopes may use custom stacks.
   # scope "/api", MonitoringDashboard.Web do
