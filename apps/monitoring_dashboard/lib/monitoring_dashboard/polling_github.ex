@@ -1,4 +1,4 @@
-defmodule MonitoringDashboard.PollingNewRelic do
+defmodule MonitoringDashboard.PollingGithub do
   use GenServer
   require Logger
   alias MonitoringDashboard.Web.Endpoint, as: PubSub
@@ -22,8 +22,11 @@ defmodule MonitoringDashboard.PollingNewRelic do
   end
 
   defp check_status() do
-    list = Job.NewRelic.fetch
-    PubSub.broadcast!("new_relic", "status_check", %{items: list})
+    rubyVersionList = Job.Github.fetchRubyVersion
+    railsVersionList = Job.Github.fetchRailsVersion
+    simplyList = Job.Github.fetchSimply
+
+    #TODO Broadcast lists to Github widgets
   end
 
   defp schedule_work() do

@@ -15,7 +15,8 @@ defmodule MonitoringDashboard.Application do
     Supervisor.start_link([
 
       worker(MonitoringDashboard.PollingNewRelic, []),
-      worker(MonitoringDashboard.PollingSemaphore, [])
+      worker(MonitoringDashboard.PollingSemaphore, []),
+      worker(MonitoringDashboard.PollingGithub, [])
 
     ], strategy: :one_for_one, name: MonitoringDashboard.Supervisor)
   end
