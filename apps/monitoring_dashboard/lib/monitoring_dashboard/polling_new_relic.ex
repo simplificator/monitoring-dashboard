@@ -9,7 +9,7 @@ defmodule MonitoringDashboard.PollingNewRelic do
   def start_link do
     GenServer.start_link(__MODULE__, %{})
   end
-
+  
   def init(state) do
     schedule_work()
     {:ok, state}

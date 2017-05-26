@@ -1,6 +1,6 @@
 defmodule MonitoringDashboard.Job.Semaphore do
 
-  import MonitoringDashboard.Web.Notifier
+  # import MonitoringDashboard.Web.Notifier
 
   def fetch() do
     semaphore_url()

@@ -20,7 +20,7 @@ defmodule MonitoringDashboard.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {MonitoringDashboard.Application, []},
-     extra_applications: [:logger, :runtime_tools]]
+     extra_applications: [:logger, :runtime_tools, :tentacat]]
   end
 
   # Specifies which paths to compile per environment.
@@ -32,7 +32,8 @@ defmodule MonitoringDashboard.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [httpoison: "~> 0.10.0",
-    poison: "~> 3.1"]
+    poison: "~> 3.1",
+    tentacat: "~> 0.5"]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
