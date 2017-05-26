@@ -1,4 +1,4 @@
-defmodule MonitoringDashboard.Polling do
+defmodule MonitoringDashboard.PollingSemaphore do
   use GenServer
   require Logger
   alias MonitoringDashboard.Web.Endpoint, as: PubSub
