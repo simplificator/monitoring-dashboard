@@ -1,7 +1,5 @@
 defmodule MonitoringDashboard.Job.Semaphore do
 
-  # import MonitoringDashboard.Web.Notifier
-
   def fetch() do
     semaphore_url()
     |> HTTPoison.get
@@ -48,9 +46,4 @@ defmodule MonitoringDashboard.Job.Semaphore do
       _ -> %{label: Map.get(server, "name"), value: "Warning"}
     end
   end
-
-  # def send_data do
-  #   list = fetch()
-  #   broadcast!(list, "semaphore")
-  # end
 end
