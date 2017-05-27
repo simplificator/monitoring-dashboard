@@ -14,6 +14,7 @@ defmodule MonitoringDashboard.Web.EventController do
   end
 
   defp send_message(conn, message) do
+    IO.inspect(message)
     chunk(conn, "event: \"message\"\n\ndata: {\"message\": \"#{message}\"}\n\n")
   end
 
@@ -26,7 +27,7 @@ defmodule MonitoringDashboard.Web.EventController do
       _ ->
         receive_broadcast(conn)
       after
-        5000 ->
+        500000 ->
           conn |> halt
     end
   end
