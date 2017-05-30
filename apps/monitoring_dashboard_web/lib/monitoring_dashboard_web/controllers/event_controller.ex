@@ -15,7 +15,7 @@ defmodule MonitoringDashboard.Web.EventController do
 
   defp send_event(conn, topic, message) do
     encoded_message = Poison.encode!(message |> Map.merge(%{updated_at: :os.system_time(:seconds)}))
-    chunk(conn, "event: #{topic}\ndata: {\"message\": \"#{encoded_message}\"}\n\n")
+    chunk(conn, "event: #{topic}\ndata: {\"message\": #{encoded_message}}\n\n")
   end
 
   defp receive_broadcast(conn) do
