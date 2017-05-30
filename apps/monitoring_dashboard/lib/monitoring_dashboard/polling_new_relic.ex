@@ -4,7 +4,7 @@ defmodule MonitoringDashboard.PollingNewRelic do
   alias MonitoringDashboard.Web.Endpoint, as: PubSub
   alias MonitoringDashboard.Job
 
-  @time_interval 600000
+  @time_interval 10000
 
   def start_link do
     GenServer.start_link(__MODULE__, %{})
@@ -23,6 +23,7 @@ defmodule MonitoringDashboard.PollingNewRelic do
 
   defp check_status() do
     list = Job.NewRelic.fetch
+
     PubSub.broadcast!("new_relic", "status_check", %{items: list})
   end
 

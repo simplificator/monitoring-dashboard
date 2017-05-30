@@ -13,15 +13,15 @@ defmodule MonitoringDashboard.Web.EventController do
     conn
   end
 
-  defp send_message(conn, message) do
-    IO.inspect(message)
-    chunk(conn, "event: \"message\"\n\ndata: {\"message\": \"#{message}\"}\n\n")
+  defp send_event(conn, topic, message) do
+    encoded_message = Poison.encode!(message |> Map.merge(%{updated_at: :os.system_time(:seconds)}))
+    chunk(conn, "event: #{topic}\ndata: {\"message\": \"#{encoded_message}\"}\n\n")
   end
 
   defp receive_broadcast(conn) do
     receive do
       %Phoenix.Socket.Broadcast{event: event, payload: payload, topic: topic} ->
-        send_message(conn, event)
+        send_event(conn, topic, payload)
         receive_broadcast(conn)
 
       _ ->
