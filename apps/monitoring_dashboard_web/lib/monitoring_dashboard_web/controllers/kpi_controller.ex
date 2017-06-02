@@ -3,9 +3,6 @@ defmodule MonitoringDashboard.Web.KpiController do
 
   def grouped_percentage_workdays(conn, _params) do
     IO.puts "Grouped percentage workdays"
-    # {:ok, body, conn} = Plug.Conn.read_body(conn)
-    body = conn.resp_body
-    IO.puts Kernel.inspect(body)
     # TODO: Check for api_key
     # TODO: Send data to widget
     conn |> resp(200, "Kpi")
