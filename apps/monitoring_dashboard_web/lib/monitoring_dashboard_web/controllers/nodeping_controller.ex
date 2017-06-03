@@ -1,10 +1,11 @@
 defmodule MonitoringDashboard.Web.NodepingController do
   use MonitoringDashboard.Web, :controller
+  alias MonitoringDashboard.Web.Endpoint, as: PubSub
 
   def get(conn, _params) do
     if conn.params["token"] == System.get_env("NODEPINGTOKEN") do
-      nodeping_list = filter_list(conn.params)
-      # TODO: Send data to widget
+      list = filter_list(conn.params)
+      PubSub.broadcast!("nodeping", "status_check", %{items: list})
     end
     conn |> resp(200, "Nodeping")
   end

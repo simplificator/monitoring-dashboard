@@ -5,6 +5,7 @@ defmodule MonitoringDashboard.Web.EventController do
     MonitoringDashboard.Web.Endpoint.subscribe("semaphore", [])
     MonitoringDashboard.Web.Endpoint.subscribe("new_relic", [])
     MonitoringDashboard.Web.Endpoint.subscribe("github", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("nodeping", [])
 
     conn = conn
     |> put_resp_content_type("text/event-stream")
