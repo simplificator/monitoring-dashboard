@@ -21,7 +21,7 @@
       </main>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/monitoring_dashboard_web/assets/js/application.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/application.js") %>"></script>
     <script src="<%= static_path(@conn, "/js/widgets.js") %>"></script>
   </body>
 </html>
