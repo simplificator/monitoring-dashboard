@@ -4,7 +4,7 @@ use Mix.Config
 # you likely want to automate and keep it away from
 # your version control system.
 
-config :monitoring_dashboard, MonitoringDashboars.Endpoint,
+config :monitoring_dashboard, MonitoringDashboard.Endpoint,
 secret_key_base: System.get_env("SECRET_KEY_BASE")
 #
 # You should document the content of this
