@@ -5,9 +5,9 @@ const webpack = require('webpack');
 
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
-  app: path.join(__dirname, "./js/app.js"),
-  widgets: glob.sync("./js/widgets/**/*.js"),
-  build: path.join(__dirname, "../priv/static/js"),
+  app: path.join(__dirname, "apps/monitoring_dashboard_web/assets/js/app.js"),
+  widgets: glob.sync("./apps/monitoring_dashboard_web/assets/js/widgets/**/*.js"),
+  build: path.join(__dirname, "apps/monitoring_dashboard_web/assets"),
   gridster: path.join(__dirname, 'node_modules/gridster/dist'),
   d3: path.join(__dirname, 'node_modules/d3/d3.min.js'),
   rickshaw: path.join(__dirname, 'node_modules/rickshaw/rickshaw.js')
@@ -78,8 +78,8 @@ if (TARGET === 'start' || !TARGET) {
 
       // Binding address of webpack-dev-server
       // Read more: https://github.com/kittoframework/kitto/wiki/Customize-Asset-Watcher
-      host: process.env.KITTO_ASSETS_HOST,
-      port: process.env.KITTO_ASSETS_PORT
+      host: "10.0.0.18",
+      port: 8080
     },
     plugins: [new webpack.HotModuleReplacementPlugin()]
   });
