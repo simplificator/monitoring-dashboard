@@ -64,18 +64,17 @@ defmodule MonitoringDashboard.Job.Github do
   end
 
   def version(file_content, regex \\ "") do
-    result = Base.decode64(String.replace_trailing(file_content,"\n",""))
+    result = Base.decode64(String.replace(file_content,"\n",""))
     case regex do
       "" ->
         case result do
           {:ok, version} -> String.replace_trailing(version,"\n","")
-          {:error, _} -> "error"
+          :error -> "error"
         end
       _ ->
         case result do
-          {:ok, version} ->
-            String.split(version, "\n") |> test_regex(regex) |> Enum.join("")
-          {:error, _} -> "error"
+          {:ok, version} -> String.split(version, "\n") |> test_regex(regex) |> Enum.join("") |> String.trim
+          :error -> "error"
         end
     end
   end
@@ -134,7 +133,7 @@ defmodule MonitoringDashboard.Job.Github do
   end
   def getRepository(client) do
     Tentacat.Repositories.list_mine(client)
-    |> Enum.filter(fn element -> not Regex.match?(readBlacklistToRegex("lib/kitto/api/blacklist.config"),element["name"]) end)
+    |> Enum.filter(fn element -> not Regex.match?(readBlacklistToRegex("lib/jobs/blacklist.config"),element["name"]) end)
   end
   def readBlacklistToRegex(file) do
     case File.read file do
