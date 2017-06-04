@@ -20,7 +20,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "kitto": "file:vendor/kitto",
+    "kitto": "file:apps/monitoring_dashboard_web/assets/vendor/kitto",
     "webpack": "^1.12.13",
     "webpack-merge": "^0.15.0",
     "compression-webpack-plugin": "0.3.1",
