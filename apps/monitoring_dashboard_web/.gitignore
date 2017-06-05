@@ -15,6 +15,5 @@ erl_crash.dump
 # variables.
 /config/*.secret.exs
 
-/priv/static/
+/assets/priv/static/
 node_modules/
-/assets/static
