@@ -40,6 +40,10 @@ erl_crash.dump
 *.swo
 *.swp
 *.vi
+*.eot
+*.ttf
+*.woff
+*.woff2
 *~
 *.sass-cache
 
