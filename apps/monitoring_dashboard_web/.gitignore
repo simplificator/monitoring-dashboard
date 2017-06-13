@@ -17,3 +17,4 @@ erl_crash.dump
 
 /assets/priv/static/
 node_modules/
+/priv/static

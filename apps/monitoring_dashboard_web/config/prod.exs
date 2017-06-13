@@ -9,3 +9,10 @@ config :monitoring_dashboard_web, MonitoringDashboard.Web.Endpoint,
 
 # Do not print debug messages in production
 config :logger, level: :info
+
+new webpack.DefinePlugin({
+  'process.env': {
+    NODE_ENV: JSON.stringify('production')
+  }
+}),
+new webpack.optimize.UglifyJsPlugin()
