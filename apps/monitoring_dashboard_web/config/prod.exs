@@ -7,12 +7,12 @@ config :monitoring_dashboard_web, MonitoringDashboard.Web.Endpoint,
   cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify('production')
+    }
+  }),
+  new webpack.optimize.UglifyJsPlugin()
+
 # Do not print debug messages in production
 config :logger, level: :info
-
-new webpack.DefinePlugin({
-  'process.env': {
-    NODE_ENV: JSON.stringify('production')
-  }
-}),
-new webpack.optimize.UglifyJsPlugin()
