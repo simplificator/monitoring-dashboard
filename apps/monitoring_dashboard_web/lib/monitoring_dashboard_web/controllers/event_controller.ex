@@ -4,8 +4,10 @@ defmodule MonitoringDashboard.Web.EventController do
   def index(conn, _params) do
     MonitoringDashboard.Web.Endpoint.subscribe("semaphore", [])
     MonitoringDashboard.Web.Endpoint.subscribe("new_relic", [])
-    MonitoringDashboard.Web.Endpoint.subscribe("github", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("kpi_test", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("version_test", [])
     MonitoringDashboard.Web.Endpoint.subscribe("nodeping", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("kpi_grouped_percentage_workdays", [])
 
     conn = conn
     |> put_resp_content_type("text/event-stream")
@@ -15,7 +17,9 @@ defmodule MonitoringDashboard.Web.EventController do
   end
 
   defp send_event(conn, topic, message) do
+    IO.puts(Kernel.inspect(topic))
     encoded_message = Poison.encode!(message |> Map.merge(%{updated_at: :os.system_time(:seconds)}))
+    IO.puts(Kernel.inspect(encoded_message))
     chunk(conn, "event: #{topic}\ndata: {\"message\": #{encoded_message}}\n\n")
   end
 

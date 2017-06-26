@@ -1,11 +1,10 @@
-defmodule MonitoringDashboard.PollingGithub do
+defmodule MonitoringDashboard.PollingKpi do
   use GenServer
   require Logger
   alias MonitoringDashboard.Web.Endpoint, as: PubSub
   alias MonitoringDashboard.Job
 
   @time_interval 10000
-  #@time_interval 3600000
 
   def start_link do
     GenServer.start_link(__MODULE__, %{})
@@ -23,12 +22,8 @@ defmodule MonitoringDashboard.PollingGithub do
   end
 
   defp check_status() do
-    #rubyVersionList = Job.Github.fetchRubyVersion
-    #railsVersionList = Job.Github.fetchRailsVersion
-    #simplyList = Job.Github.fetchSimply
-
-    PubSub.broadcast!("version_test", "status_check", %{ versions: [50,70,30]})
-    #PubSub.broadcast!("github_test", "status_check", %{ data: [[83,1,7]]})
+    PubSub.broadcast!("kpi_test", "status_check", %{ points: [%{x: 0, y: 55},%{x: 1, y: 45},%{x: 2, y: 0},%{x: 3, y: 0},%{x: 4, y: 0}], labels: ["Mon", "Tue", "Wed", "Thu", "Fri"]})
+    # PubSub.broadcast!("kpi_test_percentage", "status_check", %{ points: [%{x: 0, y: -0.017857142857142905},%{x: 1, y: -0.017857142857142905},%{x: 2, y: 0},%{x: 3, y: 0},%{x: 4, y: 0}])
   end
 
   defp schedule_work() do

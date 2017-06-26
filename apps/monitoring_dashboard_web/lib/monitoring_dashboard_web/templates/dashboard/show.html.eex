@@ -5,7 +5,6 @@
         data-sizex="2"
         data-sizey="1">
       <div class="widget-trafficlight widget-job new-relic"
-        data-unordered="true"
         data-widget="Trafficlight"
         data-source="new_relic"
         data-title="New Relic">
@@ -16,7 +15,6 @@
         data-sizex="2"
         data-sizey="1">
       <div class="widget-trafficlight widget-job"
-        data-unordered="true"
         data-widget="Trafficlight"
         data-source="semaphore"
         data-title="Semaphore">
@@ -27,11 +25,55 @@
         data-sizex="2"
         data-sizey="1">
       <div class="widget-trafficlight widget-job"
-        data-unordered="true"
         data-widget="Trafficlight"
         data-source="nodeping"
         data-title="Nodeping">
       </div>
+    </li>
+    <li data-row="2"
+        data-col="1"
+        data-sizex="2"
+        data-sizey="1">
+      <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="kpi_test"
+        data-graph-type="bar"
+        data-title="Billable hours (this week)"></div>
+    </li>
+    <li data-row="2"
+        data-col="3"
+        data-sizex="2"
+        data-sizey="1">
+      <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="kpi_test_percentage"
+        data-graph-type="bar"
+        data-yformat="percentage"
+        data-title="Relative performance (this week)"></div>
+    </li>
+    <li data-row="3"
+        data-col="1"
+        data-sizex="2"
+        data-sizey="1">
+       <div
+        data-labels="Ruby version ok or not applicable,No .ruby-version file,Ruby version outdated"
+        data-graph-type="version"
+        data-widget="Graph"
+        data-source="version_test"
+        data-title="Ruby">
+      </div>
+    </li>
+    <li data-row="4"
+        data-col="1"
+        data-sizex="2"
+        data-sizey="1">
+       <div class="widget-convergence"
+        data-widget="Graph
+        data-source="kpi_grouped_percentage_workdays"
+        data-graph-type="area"
+        data-labels="Mon,Tue,Wed,Thu,Fri"
+        data-title="Billable hours (this week)">
+       </div>
     </li>
   </ul>
 </div>
