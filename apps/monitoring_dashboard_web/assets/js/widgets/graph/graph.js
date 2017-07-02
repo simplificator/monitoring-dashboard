@@ -61,7 +61,7 @@ class Graph extends Widget {
       if(this.props.graphType=='version'){
               this.legend = new Rickshaw.Graph.Legend({
                   graph: this.graph,
-                  element: document.querySelector('#legend')
+                  element: document.getElementById(this.props.id)
               });
             }
     }
@@ -74,7 +74,7 @@ class Graph extends Widget {
                                             return labels[x];
                                         }
                                     });
-    } else {
+    } else if (state.versions != undefined){
       var labels = this.props.labels.split(',')
       var count = state.versions
       this.graph.series[0].data[0].y=count[0]
@@ -87,10 +87,10 @@ class Graph extends Widget {
       this.graph.series[0].name = count[0] + " " + labels[0]
       this.graph.series[1].name = count[1] + " " + labels[1]
       this.graph.series[2].name = count[2] + " " + labels[2]
-      $('#legend').empty();
+      jQuery(document.getElementById(this.props.id)).empty();
       this.legend = new Rickshaw.Graph.Legend({
                              graph: this.graph,
-                             element: document.querySelector('#legend')
+                             element: document.getElementById(this.props.id)
                          });
 
     }
@@ -111,7 +111,7 @@ class Graph extends Widget {
             <h1 className="title">{this.props.title}</h1>
             <p className="updated-at">{this.updatedAt(this.state.updated_at)}</p>
             <p className="more-info">{this.props.moreinfo}</p>
-            <div id="legend"></div>
+            <div id={this.props.id} className='legend'></div>
           </div>
         );
     }
