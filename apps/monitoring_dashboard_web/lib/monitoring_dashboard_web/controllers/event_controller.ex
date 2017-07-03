@@ -5,8 +5,15 @@ defmodule MonitoringDashboard.Web.EventController do
     MonitoringDashboard.Web.Endpoint.subscribe("semaphore", [])
     MonitoringDashboard.Web.Endpoint.subscribe("new_relic", [])
     MonitoringDashboard.Web.Endpoint.subscribe("kpi_test", [])
-    MonitoringDashboard.Web.Endpoint.subscribe("version_test", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("ruby", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("rails", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("simply", [])
     MonitoringDashboard.Web.Endpoint.subscribe("nodeping", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("grouped_hours_month", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("grouped_hours_week", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("grouped_hours_workdays", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("kpi_grouped_percentage_month", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("kpi_grouped_percentage_weeks", [])
     MonitoringDashboard.Web.Endpoint.subscribe("kpi_grouped_percentage_workdays", [])
 
     conn = conn
