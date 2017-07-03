@@ -48,7 +48,7 @@
         data-sizex="2"
         data-sizey="1">
        <div
-        data-labels="Rails version outdated,,Rails version ok or not applicable"
+        data-labels="Rails version ok or not applicable,,Rails version outdated"
         data-graph-type="version"
         data-widget="Graph"
         data-source="rails"
@@ -61,7 +61,7 @@
         data-sizex="2"
         data-sizey="1">
        <div
-        data-labels="simply not present,binaries not present,simply and binaries present"
+        data-labels="simply and binaries present,binaries not present,simply not present"
         data-graph-type="version"
         data-widget="Graph"
         data-id="simply"
@@ -134,6 +134,17 @@
         data-graph-type="bar"
         data-title="Relative performance (this week)">
        </div>
+    </li>
+    <li data-row="4"
+        data-col="7"
+        data-sizex="1"
+        data-sizey="1">
+       <div
+        data-widget="Meter"
+        data-source="performance"
+        data-title="Performance"
+        data-min="0"
+        data-max="100"></div>
     </li>
   </ul>
 </div>

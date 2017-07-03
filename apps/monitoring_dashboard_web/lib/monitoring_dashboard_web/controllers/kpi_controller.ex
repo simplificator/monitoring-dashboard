@@ -64,8 +64,11 @@ defmodule MonitoringDashboard.Web.KpiController do
 
   def performance(conn, _params) do
     IO.puts "Performance"
-    # TODO: Check for api_key
-    # TODO: Send data to widget
+    if conn.params["api_key"] == System.get_env("KPIAPI") do
+      value = get_value(conn.params)
+      IO.puts(Kernel.inspect(value))
+      PubSub.broadcast!("performance", "status_check", %{value: value})
+    end
     conn |> resp(200, "Kpi")
   end
 
@@ -83,5 +86,9 @@ defmodule MonitoringDashboard.Web.KpiController do
 
   def get_labels(params) do
     params["data"]["x_axis"]["labels"]
+  end
+
+  def get_value(params) do
+    params["data"]["item"]*100
   end
 end

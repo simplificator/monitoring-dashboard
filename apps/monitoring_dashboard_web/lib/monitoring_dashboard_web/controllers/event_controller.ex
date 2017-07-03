@@ -12,9 +12,10 @@ defmodule MonitoringDashboard.Web.EventController do
     MonitoringDashboard.Web.Endpoint.subscribe("grouped_hours_month", [])
     MonitoringDashboard.Web.Endpoint.subscribe("grouped_hours_week", [])
     MonitoringDashboard.Web.Endpoint.subscribe("grouped_hours_workdays", [])
-    MonitoringDashboard.Web.Endpoint.subscribe("kpi_grouped_percentage_month", [])
-    MonitoringDashboard.Web.Endpoint.subscribe("kpi_grouped_percentage_weeks", [])
-    MonitoringDashboard.Web.Endpoint.subscribe("kpi_grouped_percentage_workdays", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("grouped_percentage_month", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("grouped_percentage_weeks", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("grouped_percentage_workdays", [])
+    MonitoringDashboard.Web.Endpoint.subscribe("performance", [])
 
     conn = conn
     |> put_resp_content_type("text/event-stream")
