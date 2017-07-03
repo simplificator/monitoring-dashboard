@@ -17,7 +17,6 @@ defmodule MonitoringDashboard.Application do
       worker(MonitoringDashboard.PollingNewRelic, []),
       worker(MonitoringDashboard.PollingSemaphore, []),
       worker(MonitoringDashboard.PollingGithub, []),
-      worker(MonitoringDashboard.PollingKpi, [])
 
     ], strategy: :one_for_one, name: MonitoringDashboard.Supervisor)
   end

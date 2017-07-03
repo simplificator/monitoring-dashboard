@@ -4,7 +4,6 @@ defmodule MonitoringDashboard.Web.EventController do
   def index(conn, _params) do
     MonitoringDashboard.Web.Endpoint.subscribe("semaphore", [])
     MonitoringDashboard.Web.Endpoint.subscribe("new_relic", [])
-    MonitoringDashboard.Web.Endpoint.subscribe("kpi_test", [])
     MonitoringDashboard.Web.Endpoint.subscribe("ruby", [])
     MonitoringDashboard.Web.Endpoint.subscribe("rails", [])
     MonitoringDashboard.Web.Endpoint.subscribe("simply", [])
@@ -20,8 +19,12 @@ defmodule MonitoringDashboard.Web.EventController do
     conn = conn
     |> put_resp_content_type("text/event-stream")
     |> send_chunked(200)
-    {:ok, conn} = receive_broadcast(conn)
-    conn
+    case receive_broadcast(conn) do
+      {:ok, conn} -> conn
+      result -> result
+    end
+    #{:ok, conn} = receive_broadcast(conn)
+    #conn
   end
 
   defp send_event(conn, topic, message) do
