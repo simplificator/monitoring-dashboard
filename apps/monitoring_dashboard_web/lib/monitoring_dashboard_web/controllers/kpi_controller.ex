@@ -73,6 +73,7 @@ defmodule MonitoringDashboard.Web.KpiController do
   end
 
   def get_data(params) do
+    IO.puts(Kernel.inspect(params))
     series = params["data"]["series"]
     Enum.at(series,0)["data"]
     |> get_data( 0)
