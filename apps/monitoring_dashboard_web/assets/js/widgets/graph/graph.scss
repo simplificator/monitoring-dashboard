@@ -2,10 +2,11 @@
 // Sass declarations
 // ----------------------------------------------------------------------------
 $background-color:  #dc5945;
+$background-white: rgba(0,0,0,1);
 
 $title-color:       rgba(255, 255, 255, 0.7);
 $moreinfo-color:    rgba(255, 255, 255, 0.3);
-$tick-color:        rgba(0, 0, 0, 0.4);
+$tick-color:        rgba(0, 0, 0, 1);
 
 
 // ----------------------------------------------------------------------------
@@ -20,7 +21,7 @@ $tick-color:        rgba(0, 0, 0, 0.4);
   svg {
     position: absolute;
     opacity: 0.4;
-    fill-opacity: 0.4;
+    fill-opacity: 1;
     left: 0px;
     top: 0px;
   }
@@ -63,3 +64,36 @@ $tick-color:        rgba(0, 0, 0, 0.4);
   }
 
 }
+
+#widget-version {
+  background-color: $background-white;
+  svg {
+    opacity: 1
+  }
+}
+
+.legend {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 0 0 10px;
+        float: right;
+        width: 25%
+}
+
+.swatch {
+    display: inline-block;
+    margin-right: 3px;
+    border-radius: 2px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+.updated-at {
+  font-size: 15px;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+}
+

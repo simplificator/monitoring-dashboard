@@ -5,7 +5,6 @@
         data-sizex="2"
         data-sizey="1">
       <div class="widget-trafficlight widget-job new-relic"
-        data-unordered="true"
         data-widget="Trafficlight"
         data-source="new_relic"
         data-title="New Relic">
@@ -16,7 +15,6 @@
         data-sizex="2"
         data-sizey="1">
       <div class="widget-trafficlight widget-job"
-        data-unordered="true"
         data-widget="Trafficlight"
         data-source="semaphore"
         data-title="Semaphore">
@@ -27,11 +25,126 @@
         data-sizex="2"
         data-sizey="1">
       <div class="widget-trafficlight widget-job"
-        data-unordered="true"
         data-widget="Trafficlight"
         data-source="nodeping"
         data-title="Nodeping">
       </div>
+    </li>
+    <li data-row="2"
+        data-col="1"
+        data-sizex="2"
+        data-sizey="1">
+       <div
+        data-labels="Ruby version ok or not applicable,No .ruby-version file,Ruby version outdated"
+        data-graph-type="version"
+        data-widget="Graph"
+        data-id="ruby"
+        data-source="ruby"
+        data-title="Ruby versions">
+      </div>
+    </li>
+    <li data-row="2"
+        data-col="3"
+        data-sizex="2"
+        data-sizey="1">
+       <div
+        data-labels="Rails version ok or not applicable,,Rails version outdated"
+        data-graph-type="version"
+        data-widget="Graph"
+        data-source="rails"
+        data-id="rails"
+        data-title="Rails versions">
+      </div>
+    </li>
+    <li data-row="2"
+        data-col="5"
+        data-sizex="2"
+        data-sizey="1">
+       <div
+        data-labels="simply and binaries present,binaries not present,simply not present"
+        data-graph-type="version"
+        data-widget="Graph"
+        data-id="simply"
+        data-source="simply"
+        data-title="Simply">
+      </div>
+    </li>
+    <li data-row="3"
+        data-col="1"
+        data-sizex="2"
+        data-sizey="1">
+       <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="grouped_hours_month"
+        data-graph-type="bar"
+        data-title="Billable hours (past months)">
+       </div>
+    </li>
+    <li data-row="3"
+        data-col="3"
+        data-sizex="2"
+        data-sizey="1">
+       <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="grouped_hours_week"
+        data-graph-type="bar"
+        data-title="Billable hours (past weeks)">
+       </div>
+    </li>
+    <li data-row="3"
+        data-col="5"
+        data-sizex="2"
+        data-sizey="1">
+       <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="grouped_hours_workdays"
+        data-graph-type="bar"
+        data-title="Billable hours (this week)">
+       </div>
+    </li>
+    <li data-row="4"
+        data-col="1"
+        data-sizex="2"
+        data-sizey="1">
+       <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="grouped_percentage_month"
+        data-graph-type="bar"
+        data-title="Relative performance (past months)">
+       </div>
+    </li>
+    <li data-row="4"
+        data-col="3"
+        data-sizex="2"
+        data-sizey="1">
+       <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="grouped_percentage_week"
+        data-graph-type="bar"
+        data-title="Relative performance (past weeks)">
+       </div>
+    </li>
+    <li data-row="4"
+        data-col="5"
+        data-sizex="2"
+        data-sizey="1">
+       <div class="widget-convergence"
+        data-widget="Graph"
+        data-source="grouped_percentage_workdays"
+        data-graph-type="bar"
+        data-title="Relative performance (this week)">
+       </div>
+    </li>
+    <li data-row="4"
+        data-col="7"
+        data-sizex="1"
+        data-sizey="1">
+       <div
+        data-widget="Meter"
+        data-source="performance"
+        data-title="Performance"
+        data-min="0"
+        data-max="100"></div>
     </li>
   </ul>
 </div>

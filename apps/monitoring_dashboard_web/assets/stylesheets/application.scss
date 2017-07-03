@@ -192,9 +192,10 @@ h3 {
 .updated-at {
   font-size: 15px;
   position: absolute;
-  bottom: 12px;
+  top: 12px;
   left: 0;
   right: 0;
+  z-index: 1000;
 }
 
 #container {

@@ -29,7 +29,7 @@ export class Trafficlight extends Widget {
     });
   }
   renderList(items) {
-    return this.props.unordered ? <ul>{items}</ul> : <ol>{items}</ol>;
+    <ul>{items}</ul>;
   }
   render() {
   if(this.state.items == [] || this.state.items == '' || this.state.items == undefined){
