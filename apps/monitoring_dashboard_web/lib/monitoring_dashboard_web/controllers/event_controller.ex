@@ -43,8 +43,15 @@ defmodule MonitoringDashboard.Web.EventController do
       _ ->
         receive_broadcast(conn)
       after
-        500000 ->
-          conn |> halt
+        30000 ->
+          conn
+          |> send_ping
+          |> receive_broadcast
     end
+  end
+
+  defp send_ping(conn) do
+    {:ok, conn} = chunk(conn, "")
+    conn
   end
 end
