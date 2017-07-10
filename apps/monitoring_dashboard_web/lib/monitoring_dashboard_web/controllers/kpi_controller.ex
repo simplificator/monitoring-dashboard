@@ -89,7 +89,10 @@ defmodule MonitoringDashboard.Web.KpiController do
   end
 
   def get_labels(params) do
-    params["data"]["x_axis"]["labels"]
+    keys = Map.keys(params)
+    first_key = Enum.at(keys,0)
+    parsed = Poison.Parser.parse!(first_key)
+    parsed["data"]["x_axis"]["labels"]
   end
 
   def get_value(params) do
