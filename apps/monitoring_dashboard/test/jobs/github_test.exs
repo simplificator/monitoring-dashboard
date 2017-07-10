@@ -81,5 +81,6 @@ defmodule GithubTest do
   test "read blacklist" do
     blacklist = MonitoringDashboard.Job.Github.readBlacklistToRegex("lib/jobs/blacklist.config")
     assert Regex.match?(blacklist, "mongomapper-tree")
+    assert not Regex.match?(blacklist, "thisshouldnotmatch")
   end
 end
