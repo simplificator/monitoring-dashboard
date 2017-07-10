@@ -12,22 +12,22 @@ defmodule MonitoringDashboard.Web.KpiController do
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_percentage_week(conn, _params) do
-    IO.puts "KPI Grouped percentage week"
+  def grouped_percentage_weeks(conn, _params) do
+    IO.puts "KPI Grouped percentage weeks"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_percentage_week", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_percentage_weeks", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_percentage_month(conn, _params) do
-    IO.puts "KPI Grouped percentage month"
+  def grouped_percentage_months(conn, _params) do
+    IO.puts "KPI Grouped percentage months"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_percentage_month", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_percentage_months", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
@@ -42,22 +42,22 @@ defmodule MonitoringDashboard.Web.KpiController do
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_hours_week(conn, _params) do
-    IO.puts "KPI Grouped hours week"
+  def grouped_hours_weeks(conn, _params) do
+    IO.puts "KPI Grouped hours weeks"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_hours_week", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_hours_weeks", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_hours_month(conn, _params) do
-    IO.puts "KPI Grouped hours month"
+  def grouped_hours_months(conn, _params) do
+    IO.puts "KPI Grouped hours months"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_hours_month", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_hours_months", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
