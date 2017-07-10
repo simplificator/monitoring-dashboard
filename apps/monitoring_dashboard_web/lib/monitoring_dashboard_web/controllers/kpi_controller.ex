@@ -3,7 +3,7 @@ defmodule MonitoringDashboard.Web.KpiController do
   alias MonitoringDashboard.Web.Endpoint, as: PubSub
 
   def grouped_percentage_workdays(conn, _params) do
-    IO.puts "Grouped percentage workdays"
+    IO.puts "KPI Grouped percentage workdays"
     if conn.params[:api_key] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
@@ -12,28 +12,28 @@ defmodule MonitoringDashboard.Web.KpiController do
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_percentage_week(conn, _params) do
-    IO.puts "Grouped percentage week"
+  def grouped_percentage_weeks(conn, _params) do
+    IO.puts "KPI Grouped percentage weeks"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_percentage_week", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_percentage_weeks", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_percentage_month(conn, _params) do
-    IO.puts "Grouped percentage month"
+  def grouped_percentage_months(conn, _params) do
+    IO.puts "KPI Grouped percentage months"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_percentage_month", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_percentage_months", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
 
   def grouped_hours_workdays(conn, _params) do
-    IO.puts "Grouped hours workdays"
+    IO.puts "KPI Grouped hours workdays"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
@@ -42,28 +42,28 @@ defmodule MonitoringDashboard.Web.KpiController do
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_hours_week(conn, _params) do
-    IO.puts "Grouped hours week"
+  def grouped_hours_weeks(conn, _params) do
+    IO.puts "KPI Grouped hours weeks"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_hours_week", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_hours_weeks", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
 
-  def grouped_hours_month(conn, _params) do
-    IO.puts "Grouped hours month"
+  def grouped_hours_months(conn, _params) do
+    IO.puts "KPI Grouped hours months"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       points = get_data(conn.params)
       labels = get_labels(conn.params)
-      PubSub.broadcast!("grouped_hours_month", "status_check", %{points: points, labels: labels})
+      PubSub.broadcast!("grouped_hours_months", "status_check", %{points: points, labels: labels})
     end
     conn |> resp(200, "Kpi")
   end
 
   def performance(conn, _params) do
-    IO.puts "Performance"
+    IO.puts "KPI Performance"
     if conn.params["api_key"] == System.get_env("KPIAPI") do
       value = get_value(conn.params)
       IO.puts(Kernel.inspect(value))
@@ -74,7 +74,10 @@ defmodule MonitoringDashboard.Web.KpiController do
 
   def get_data(params) do
     IO.puts(Kernel.inspect(params))
-    series = params["data"]["series"]
+    keys = Map.keys(params)
+    first_key = Enum.at(keys,0)
+    parsed = Poison.Parser.parse!(first_key)
+    series = parsed["data"]["series"]
     Enum.at(series,0)["data"]
     |> get_data( 0)
   end
@@ -86,10 +89,17 @@ defmodule MonitoringDashboard.Web.KpiController do
   end
 
   def get_labels(params) do
-    params["data"]["x_axis"]["labels"]
+    keys = Map.keys(params)
+    first_key = Enum.at(keys,0)
+    parsed = Poison.Parser.parse!(first_key)
+    parsed["data"]["x_axis"]["labels"]
   end
 
   def get_value(params) do
-    params["data"]["item"]*100
+    IO.puts(Kernel.inspect(params))
+    keys = Map.keys(params)
+    first_key = Enum.at(keys,0)
+    parsed = Poison.Parser.parse!(first_key)
+    parsed["data"]["item"]*100
   end
 end

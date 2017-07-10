@@ -75,7 +75,7 @@
         data-sizey="1">
        <div class="widget-convergence"
         data-widget="Graph"
-        data-source="grouped_hours_month"
+        data-source="grouped_hours_months"
         data-graph-type="bar"
         data-title="Billable hours (past months)">
        </div>
@@ -86,7 +86,7 @@
         data-sizey="1">
        <div class="widget-convergence"
         data-widget="Graph"
-        data-source="grouped_hours_week"
+        data-source="grouped_hours_weeks"
         data-graph-type="bar"
         data-title="Billable hours (past weeks)">
        </div>
@@ -108,7 +108,7 @@
         data-sizey="1">
        <div class="widget-convergence"
         data-widget="Graph"
-        data-source="grouped_percentage_month"
+        data-source="grouped_percentage_months"
         data-graph-type="bar"
         data-title="Relative performance (past months)">
        </div>
@@ -119,7 +119,7 @@
         data-sizey="1">
        <div class="widget-convergence"
         data-widget="Graph"
-        data-source="grouped_percentage_week"
+        data-source="grouped_percentage_weeks"
         data-graph-type="bar"
         data-title="Relative performance (past weeks)">
        </div>
