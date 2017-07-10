@@ -4,8 +4,7 @@ defmodule MonitoringDashboard.PollingGithub do
   alias MonitoringDashboard.Web.Endpoint, as: PubSub
   alias MonitoringDashboard.Job
 
-  #@time_interval 10000
-  @time_interval 3600000
+  @time_interval 900000
 
   def start_link do
     GenServer.start_link(__MODULE__, %{})
