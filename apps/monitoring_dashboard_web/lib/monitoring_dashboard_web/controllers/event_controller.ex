@@ -15,16 +15,24 @@ defmodule MonitoringDashboard.Web.EventController do
     MonitoringDashboard.Web.Endpoint.subscribe("grouped_percentage_weeks", [])
     MonitoringDashboard.Web.Endpoint.subscribe("grouped_percentage_workdays", [])
     MonitoringDashboard.Web.Endpoint.subscribe("performance", [])
+    MonitoringDashboard.Subscriptions.start
+
 
     conn = conn
     |> put_resp_content_type("text/event-stream")
     |> send_chunked(200)
+
     case receive_broadcast(conn) do
       {:ok, conn} -> conn
       result -> result
     end
     #{:ok, conn} = receive_broadcast(conn)
     #conn
+
+    |> # Send cached topic messages
+    {:ok, conn} = receive_broadcast(conn)
+    conn
+
   end
 
   defp send_event(conn, topic, message) do
