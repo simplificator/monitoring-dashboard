@@ -132,13 +132,14 @@ defmodule MonitoringDashboard.Job.Github do
     Tentacat.Client.new(%{access_token: System.get_env("GITHUBAPI")})
   end
   def getRepository(client) do
+    blacklist = readBlacklistToRegex("apps/monitoring_dashboard/lib/jobs/blacklist.config")
     Tentacat.Repositories.list_mine(client)
-    |> Enum.filter(fn element -> not Regex.match?(readBlacklistToRegex("lib/jobs/blacklist.config"),element["name"]) end)
+    |> Enum.filter(fn element -> not Regex.match?(blacklist,element["name"]) end)
   end
   def readBlacklistToRegex(file) do
     case File.read file do
       {:error, _} -> Regex.compile!("$a")
-      {:ok, body} -> String.replace(body, "\n", "|") |> Regex.compile!
+      {:ok, body} -> String.replace(body, "\n", "|") |> String.slice(0..-2) |> Regex.compile!
     end
   end
 end

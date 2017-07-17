@@ -26,6 +26,7 @@ defmodule MonitoringDashboard.Job.NewRelic do
 
   def filter({ :error, _body }) do
     IO.puts "Error during connection to new Relic"
+    []
   end
 
   def mapping(server) do
