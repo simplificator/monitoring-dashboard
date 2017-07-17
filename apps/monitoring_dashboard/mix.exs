@@ -12,6 +12,8 @@ defmodule MonitoringDashboard.Mixfile do
      elixirc_paths: elixirc_paths(Mix.env),
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
+     test_coverage: [tool: ExCoveralls],
+     preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test],
      deps: deps()]
   end
 
@@ -33,7 +35,8 @@ defmodule MonitoringDashboard.Mixfile do
   defp deps do
     [httpoison: "~> 0.10.0",
     poison: "~> 3.1",
-    tentacat: "~> 0.5"]
+    tentacat: "~> 0.5",
+    excoveralls: "~> 0.7"]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
